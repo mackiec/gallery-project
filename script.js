@@ -25,8 +25,15 @@ function handleStart(e) {
     // Increase the z-index so this image appears above all others
     this.style.zIndex = ++zIndex;
 
-    // Remove any existing transition
-    this.style.transition = '';
+    // Scale up this image and scale down the others
+    this.style.transform = 'scale(1.05)';
+    this.style.transition = 'transform 1.2s';
+    images.forEach(image => {
+        if (image !== this) {
+            image.style.transform = 'scale(0.97)';
+            image.style.transition = 'transform 1.2s';
+        }
+    });
 
     // Add the mousemove and mouseup event listeners
     document.addEventListener('mousemove', handleMove);
@@ -58,7 +65,7 @@ function handleMove(e) {
 function handleEnd(e) {
     if (activeElement) {
         // Apply a slide effect based on the final mouse velocity
-        activeElement.style.transition = 'left 0.5s ease-out, top 0.5s ease-out';
+        activeElement.style.transition = 'left 0.5s ease-out, top 0.5s ease-out, transform 0.3s';
         activeElement.style.left = (activeElement.offsetLeft + mouseVelocity.x * 2) + 'px'; // Increase multiplier for more noticeable effect
         activeElement.style.top = (activeElement.offsetTop + mouseVelocity.y * 2) + 'px'; // Increase multiplier for more noticeable effect
 
@@ -71,6 +78,15 @@ function handleEnd(e) {
         document.removeEventListener('mouseup', handleEnd);
         document.removeEventListener('touchmove', handleMove);
         document.removeEventListener('touchend', handleEnd);
+
+        // Wait for the slide effect to complete before resetting the scale of the images
+        activeElement.addEventListener('transitionend', () => {
+            // Reset the scale of the images
+            images.forEach(image => {
+                image.style.transform = '';
+                image.style.transition = '';
+            });
+        });
     }
 }
 
