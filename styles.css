@@ -7,20 +7,24 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #333; /* Dark grey */
+    background-image: url('./images/background.jpg');
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: right; /* lock image to the right */
 }
 
 #gallery {
     position: relative;
-    width: 80%;
-    height: 80%;
-    border: 2px solid #ccc;
+    width: 90%;
+    height: 90%;
     overflow: hidden;
     background-color: #fff; /* White */
+    box-shadow: inset 0 0 5px 10px #000,0 0 10px 10px rgba(255, 255, 255, 0.3); /* Add a glow effect */
 }
 
 .draggable {
     position: absolute;
-    width: 150px;
+    width: 300px;
     height: auto;
     cursor: grab;
     user-select: none;
