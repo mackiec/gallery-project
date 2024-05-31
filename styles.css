@@ -6,11 +6,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #333; /* Dark grey */
-    background-image: url('./images/background.jpg');
-    background-size: cover; /* Resize the background image to cover the entire container */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-position: right; /* lock image to the right */
+    background-color: #ffffff; /* Dark grey */
+    /* background-image: url('./images/background.jpg'); */
+    /* background-size: cover; /* Resize the background image to cover the entire container */
+    /* background-repeat: no-repeat; /* Do not repeat the image */
+    /* background-position: right; /* lock image to the right */ 
 }
 
 #gallery {
@@ -24,8 +24,18 @@ body {
 
 .draggable {
     position: absolute;
-    width: 300px;
+    width: 350px;
     height: auto;
     cursor: grab;
     user-select: none;
+}
+
+@media (max-width: 600px) {
+    #gallery {
+        width: 80vw;
+        height: 80vh;
+    }
+    .draggable {
+        width: 50vw;
+    }
 }

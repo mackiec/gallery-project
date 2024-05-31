@@ -9,14 +9,17 @@ let lastMousePosition = { x: 0, y: 0 };
 let mouseVelocity = { x: 0, y: 0 };
 
 function handleStart(e) {
-    // Calculate the difference between the pointer's position and the image's position
-    let clientX = e.clientX || e.touches[0].clientX;
-    let clientY = e.clientY || e.touches[0].clientY;
-    shiftX = clientX - this.getBoundingClientRect().left;
-    shiftY = clientY - this.getBoundingClientRect().top;
+    // Prevent the default behavior of the touch event
+    e.preventDefault();
 
     // Set the active element to this image
     activeElement = this;
+
+    // Calculate the difference between the pointer's position and the image's position
+    let clientX = e.clientX || e.touches[0].clientX;
+    let clientY = e.clientY || e.touches[0].clientY;
+    shiftX = clientX - activeElement.getBoundingClientRect().left - window.scrollX;
+    shiftY = clientY - activeElement.getBoundingClientRect().top - window.scrollY;
 
     // Change the cursor to a grabbing hand
     this.style.cursor = 'grabbing';
@@ -26,12 +29,12 @@ function handleStart(e) {
     this.style.zIndex = ++zIndex;
 
     // Scale up this image and scale down the others
-    this.style.transform = 'scale(1.05)';
-    this.style.transition = 'transform 1.2s';
+    this.style.transform = 'scale(1.03)';
+    this.style.transition = 'transform 1.5s';
     images.forEach(image => {
         if (image !== this) {
-            image.style.transform = 'scale(0.97)';
-            image.style.transition = 'transform 1.2s';
+            image.style.transform = 'scale(1.0)';
+            image.style.transition = 'transform 1.5s';
         }
     });
 
