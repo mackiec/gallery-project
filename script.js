@@ -68,7 +68,7 @@ function handleMove(e) {
 function handleEnd(e) {
     if (activeElement) {
         // Apply a slide effect based on the final mouse velocity
-        activeElement.style.transition = 'left 0.5s ease-out, top 0.5s ease-out, transform 0.3s';
+        activeElement.style.transition = 'left 0.8s ease-out, top 0.8s ease-out, transform 1s';
         activeElement.style.left = (activeElement.offsetLeft + mouseVelocity.x * 2) + 'px'; // Increase multiplier for more noticeable effect
         activeElement.style.top = (activeElement.offsetTop + mouseVelocity.y * 2) + 'px'; // Increase multiplier for more noticeable effect
 
