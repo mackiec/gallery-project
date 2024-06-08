@@ -31,7 +31,7 @@ body {
     height: auto;
     cursor: grab;
     user-select: none;
-    box-shadow: 0 0 0 30px #fff inset;
+    box-shadow: 0 0 0 5px #fff inset;
     padding: 5px;
 }
 
