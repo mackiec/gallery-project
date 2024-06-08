@@ -1,3 +1,9 @@
+var img = new Image();
+img.src = './images/background.jpg';
+img.onload = function() {
+    document.getElementById('loading-overlay').style.display = 'none';
+};
+
 // Get all draggable images
 const images = document.querySelectorAll('.draggable');
 
