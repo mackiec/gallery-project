@@ -48,6 +48,12 @@
         <img src="images/00038image.jpg" class="draggable" alt="Image 37">
         <!-- Add more images as needed -->
     </div>
+    <script>
+        document.body.style.height = `${window.innerHeight}px`;
+        window.addEventListener('resize', () => {
+          document.body.style.height = `${window.innerHeight}px`;
+        });
+        </script>
     <script src="script.js"></script>
 </body>
 </html>

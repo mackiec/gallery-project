@@ -68,9 +68,9 @@ function handleMove(e) {
 function handleEnd(e) {
     if (activeElement) {
         // Apply a slide effect based on the final mouse velocity
-        activeElement.style.transition = 'left 0.8s ease-out, top 0.8s ease-out, transform 1s';
-        activeElement.style.left = (activeElement.offsetLeft + mouseVelocity.x * 2.5) + 'px'; // Increase multiplier for more noticeable effect
-        activeElement.style.top = (activeElement.offsetTop + mouseVelocity.y * 2.5) + 'px'; // Increase multiplier for more noticeable effect
+        activeElement.style.transition = 'left 0.8s ease-out, top 0.8s ease-out, transform 1.5s';
+        activeElement.style.left = (activeElement.offsetLeft + mouseVelocity.x * 3.5) + 'px'; // Increase multiplier for more noticeable effect
+        activeElement.style.top = (activeElement.offsetTop + mouseVelocity.y * 3.5) + 'px'; // Increase multiplier for more noticeable effect
 
         // Reset the cursor and the active element
         activeElement.style.cursor = 'grab';

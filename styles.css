@@ -6,17 +6,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #ffffff; /* Dark grey */
-    /* background-image: url('./images/background.jpg'); */
-    /* background-size: cover; /* Resize the background image to cover the entire container */
-    /* background-repeat: no-repeat; /* Do not repeat the image */
-    /* background-position: right; /* lock image to the right */ 
+    background-color: #ffffff; /* white */
+    background-image: url('./images/background.jpg');
+    background-size: cover; /* Resize the background image to cover the entire container */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: bottom right; /* lock image to the right */ 
 }
 
 #gallery {
     position: relative;
-    width: 90%;
-    height: 90%;
+    width: 80vw;
+    height: 80vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -27,7 +27,7 @@ body {
 
 .draggable {
     position: absolute;
-    width: 350px;
+    width: 25vw;
     height: auto;
     cursor: grab;
     user-select: none;
