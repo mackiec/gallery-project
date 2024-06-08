@@ -65,7 +65,7 @@ function handleMove(e) {
     }
 }
 
-function handleEnd(_e) {
+function handleEnd(e) {
     if (activeElement) {
         // Apply a slide effect based on the final mouse velocity
         activeElement.style.transition = 'left 0.8s ease-out, top 0.8s ease-out, transform 1s';
@@ -74,7 +74,6 @@ function handleEnd(_e) {
 
         // Reset the cursor and the active element
         activeElement.style.cursor = 'grab';
-        activeElement = null;
 
         // Remove the mousemove and mouseup event listeners
         document.removeEventListener('mousemove', handleMove);
@@ -82,14 +81,11 @@ function handleEnd(_e) {
         document.removeEventListener('touchmove', handleMove);
         document.removeEventListener('touchend', handleEnd);
 
-        // Wait for the slide effect to complete before resetting the scale of the images
-        activeElement.addEventListener('transitionend', () => {
-            // Reset the scale of the images
-            images.forEach(image => {
-                image.style.transform = '';
-                image.style.transition = '';
-            });
-        });
+        // Reset the mouse velocity
+        mouseVelocity = { x: 0, y: 0 };
+
+        // Reset the active element
+        activeElement = null;
     }
 }
 
