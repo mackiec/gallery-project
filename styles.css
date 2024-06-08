@@ -31,6 +31,8 @@ body {
     height: auto;
     cursor: grab;
     user-select: none;
+    box-shadow: 0 0 0 30px #fff inset;
+    padding: 5px;
 }
 
 @media (max-width: 600px) {
